@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://Dev-Henrique-Almeida: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@github.com/Dev-Henrique-Almeida/assim-app-comercio-consumidor.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
