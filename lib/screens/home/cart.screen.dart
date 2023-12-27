@@ -20,11 +20,9 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  late int selectedIndex = 0;
+  int selectedIndex = 3;
   @override
   Widget build(BuildContext context) {
-    //late int melancia = 0;
-    //late int limao = 0;
     late int selectedIndex = 0;
     Size size = MediaQuery.of(context).size;
     return ChangeNotifierProvider(
@@ -32,6 +30,7 @@ class _CartScreenState extends State<CartScreen> {
       builder: (context, child) => Consumer<HomeScreenController>(
           builder: ((context, controller, child) => Scaffold(
                 appBar: const CustomAppBar(),
+                endDrawer: buildCustomDrawer(context),
                 bottomNavigationBar:
                     BottomNavigation(selectedIndex: selectedIndex),
                 body: SingleChildScrollView(
@@ -78,8 +77,7 @@ class _CartScreenState extends State<CartScreen> {
                                 color: kTextButtonColor.withOpacity(0.5),
                                 spreadRadius: 0,
                                 blurRadius: 3,
-                                offset: const Offset(
-                                    0, 0), // changes position of shadow
+                                offset: const Offset(0, 0),
                               ),
                             ],
                           ),
@@ -410,7 +408,6 @@ class _CartScreenState extends State<CartScreen> {
                                         'Excluir',
                                         style: TextStyle(
                                           fontSize: 15,
-                                          // color: kTextButtonColor
                                         ),
                                       ),
                                     ),

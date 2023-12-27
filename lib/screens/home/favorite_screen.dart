@@ -20,13 +20,14 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     //final whats = Uri.parse('https://api.whatsapp.com/send?phone=5581997128385');
-    int selectedIndex = 0;
+    int selectedIndex = 1;
     Size size = MediaQuery.of(context).size;
     return ChangeNotifierProvider(
       create: (_) => HomeScreenController(),
       builder: (context, child) => Consumer<HomeScreenController>(
         builder: ((context, controller, child) => Scaffold(
               appBar: const CustomAppBar(),
+              endDrawer: buildCustomDrawer(context),
               bottomNavigationBar:
                   BottomNavigation(selectedIndex: selectedIndex),
               body: Container(

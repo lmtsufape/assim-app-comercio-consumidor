@@ -21,7 +21,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
     final whats =
         Uri.parse('https://api.whatsapp.com/send?phone=5581997128484');
     int selectedIndex = 0;
@@ -31,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, child) => Consumer<HomeScreenController>(
         builder: ((context, controller, child) => Scaffold(
               appBar: const CustomAppBar(),
+              endDrawer: buildCustomDrawer(context),
               bottomNavigationBar:
                   BottomNavigation(selectedIndex: selectedIndex),
               body: Container(
@@ -38,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: size.width,
                 padding: const EdgeInsets.all(20),
                 child: const Column(
-                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     Padding(
                       padding: EdgeInsets.all(5.0),
