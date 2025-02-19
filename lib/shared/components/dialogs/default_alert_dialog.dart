@@ -106,7 +106,7 @@ class DefaultAlertDialogOneButton extends StatelessWidget {
       required this.body,
       required this.onConfirm,
       required this.confirmText,
-      required this.buttonColor});
+      required this.buttonColor, required Color textColor});
 
   final String title;
   final String body;

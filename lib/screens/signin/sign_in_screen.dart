@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ecommerceassim/screens/forgot-password/forgot_password_screen.dart';
 import 'package:ecommerceassim/screens/screens_index.dart';
 import 'package:ecommerceassim/shared/components/header_start_app/header_start_app.dart';
 import 'package:ecommerceassim/shared/constants/app_enums.dart';
 import 'package:ecommerceassim/shared/constants/app_number_constants.dart';
 import 'package:ecommerceassim/shared/constants/style_constants.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:ecommerceassim/components/buttons/custom_text_button.dart';
 import 'package:ecommerceassim/components/forms/custom_text_form_field.dart';
 import 'package:ecommerceassim/components/utils/vertical_spacer_box.dart';
@@ -31,9 +31,8 @@ class SignInScreen extends StatelessWidget with ValidationMixin {
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 35),
-                    // ignore: avoid_unnecessary_containers
                     child: Container(
-                      child:  const HeaderStartApp(Colors.white),
+                      child: const HeaderStartApp(Colors.white),
                     ),
                   ),
                 ),
@@ -45,7 +44,7 @@ class SignInScreen extends StatelessWidget with ValidationMixin {
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(35), 
+                      topLeft: Radius.circular(35),
                       topRight: Radius.circular(35),
                     )
                   ),
@@ -111,7 +110,9 @@ class SignInScreen extends StatelessWidget with ValidationMixin {
                                   ),
                                   padding: const EdgeInsets.symmetric(vertical: 12),
                                   textStyle: const TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.w500),
+                                    fontSize: 18, 
+                                    fontWeight: FontWeight.w500
+                                  ),
                                 ),
                                 child: const Text(
                                   'Entrar',

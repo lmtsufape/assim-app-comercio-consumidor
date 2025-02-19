@@ -44,7 +44,7 @@ dependencies:
   cached_network_image: ^3.2.1
   dio: ^5.4.1
   image_picker: ^1.0.7
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.5.2
   path_provider: ^2.0.10
   logging: ^1.0.2
   device_preview: ^1.1.0

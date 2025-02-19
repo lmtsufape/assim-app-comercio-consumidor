@@ -1,3 +1,4 @@
+// sign_in_repository.dart
 // ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
@@ -82,36 +83,49 @@ class SignInRepository {
         '$kBaseURL/sanctum/token',
         data: {'email': email, 'password': password, 'device_name': "PC"},
       );
+      
       if (response.statusCode == 200) {
         if (await userStorage.userHasCredentials()) {
           await userStorage.clearUserCredentials();
         }
+        
         userId = response.data['user']['id'].toString();
         userToken = response.data['token'].toString();
+        
         await userStorage.saveUserCredentials(
           id: userId,
           nome: response.data['user']['name'].toString(),
           token: userToken,
           email: response.data['user']['email'].toString(),
         );
+
         try {
-          Response response = await _dio.get('$kBaseURL/users/$userId',
-              options:
-                  Options(headers: {"Authorization": "Bearer $userToken"}));
-          if (response.statusCode == 200) {
-            if (response.data["user"].isEmpty) {
-              return 2;
-            } else {
-              return 1;
+          Response userResponse = await _dio.get(
+            '$kBaseURL/users/$userId',
+            options: Options(headers: {"Authorization": "Bearer $userToken"})
+          );
+          
+          if (userResponse.statusCode == 200) {
+            List roles = userResponse.data['user']['roles'];
+            if (roles.isNotEmpty) {
+              int roleId = roles[0]['id'];
+              print('Role ID: $roleId');
+              
+              // Verifica se é consumidor (role 5)
+              if (roleId == 5) {
+                return 1; // Sucesso - é consumidor
+              } else {
+                return 3; // Não autorizado - não é consumidor
+              }
             }
           }
         } catch (e) {
+          print(e);
           return 0;
         }
-        return 1;
       }
     } catch (e) {
-      //log(e.toString());
+      print(e);
       return 0;
     }
     return 0;
